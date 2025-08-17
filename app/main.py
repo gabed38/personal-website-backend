@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .api.v1 import contact, agent_workflow
+from app.api.v1 import contact, agent_workflow
 
 app = FastAPI(
     title="Personal Website Backend",
@@ -11,7 +11,7 @@ app = FastAPI(
 # Allow frontend requests
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "https://yourdomain.com"], 
+    allow_origins=["http://localhost:3000", "https://gabriel-darnells-website.vercel.app"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
