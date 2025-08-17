@@ -17,6 +17,11 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Default root route (sanity check)
+@app.get("/")
+async def root():
+    return {"message": "Backend is live!"}
+
 # Include versioned APIs
 app.include_router(contact.router, prefix="/api/v1")
 app.include_router(agent_workflow.router, prefix="/api/v1")
